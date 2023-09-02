@@ -19,7 +19,7 @@ function App() {
                 setComments(data);
             })
             .catch((e) => console.log(e))
-        setFilteredComments(comments);
+        // setFilteredComments(comments);
     }, [comments]);
        
       
