@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -19,13 +20,15 @@ module.exports = {
       node: {
          extensions: ['.js', '.jsx'],
         //  includes the modules from these directories
-         moduleDirectory: ['node_modules','src'],
+        //  moduleDirectory: ['node_modules','src'],
        },
       //  Used to give aliases to absolute paths and resolve them 
-      //  alias: {
-      //    extensions: [".js",".jsx"],
-      //    map: [["~", "./src"]]
-      //  }
+       alias: {
+         extensions: [".js",".jsx"],
+         map: [["~", path.resolve(__dirname, './src')],
+         ["views",path.resolve(__dirname,"./src/views")],
+         ["components",path.resolve(__dirname,"./src/components")]],
+       }
        
     },
   },
