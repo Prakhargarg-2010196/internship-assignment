@@ -19,16 +19,14 @@ function App() {
                 setComments(data);
             })
             .catch((e) => console.log(e))
-        // setFilteredComments(comments);
-    }, [comments]);
-       
+            setFilteredComments(comments);
+    }, []);
       
 
     const handleFilterChange =(postId) => {
         // Filter comments based on the entered postId
         const output = comments.filter((ele) => ele.postId === Number(postId));
         setFilteredComments(output);
-        
     }
 
     const handlePostClick = (postId) => {
@@ -39,6 +37,7 @@ function App() {
     return (
         <div className="app flex columns-2">
             <PostList
+                defaultComments={comments}
                 comments={filteredComments}
                 onFilterChange={handleFilterChange}
                 onPostClick={handlePostClick}
